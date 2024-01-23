@@ -8,26 +8,26 @@ import MyContext from "./MyContext";
 const Navbar = () => {
   const { state, dispatch } = useContext(MyContext);
 
-  const checkSize = () => {
-    // console.log(window.innerWidth);
-    if (window.innerWidth <= 1025) {
-      dispatch({ type: "MOBILE_VIEW_ON" });
-    } else {
-      dispatch({ type: "MOBILE_VIEW_OFF" });
-    }
-  };
-
   const handleClick = () => {
     dispatch({ type: "TOGGLE_SIDEBAR" });
   };
 
   useEffect(() => {
+    const checkSize = () => {
+      // console.log(window.innerWidth);
+      if (window.innerWidth <= 1025) {
+        dispatch({ type: "MOBILE_VIEW_ON" });
+      } else {
+        dispatch({ type: "MOBILE_VIEW_OFF" });
+      }
+    };
+
     window.addEventListener("resize", checkSize);
     checkSize();
     return () => {
       window.removeEventListener("resize", checkSize);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
