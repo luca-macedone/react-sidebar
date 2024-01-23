@@ -1,0 +1,68 @@
+:root {
+  --ms-primary: #3892c2;
+  --ms-secondary: #caf0f8;
+}
+
+.ms-text-primary {
+  color: var(--ms-primary);
+}
+
+.ms-link-btn {
+  background-color: transparent !important;
+  transition: all ease-in-out 200ms;
+}
+
+.ms-link-btn:hover {
+  background-color: rgba(202, 240, 248, 0.25) !important;
+  color: var(--ms-primary) !important;
+}
+
+.ms-modal-btn {
+  background-color: var(--ms-secondary) !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 2px;
+  scale: 1;
+  transition: all ease-in-out 200ms !important;
+}
+
+.ms-modal-btn:hover {
+  scale: 1.1;
+  border-color: var(--ms-primary) !important;
+}
+
+.ms-fs-7 {
+  font-size: 0.75rem;
+}
+
+#navbar {
+  transition: all ease-in-out 200ms;
+}
+
+#dropdown-menu {
+  transition: all ease-in-out 200ms;
+}
+
+.ms-h-full {
+  min-height: calc(100vh - 70px);
+}
+
+#sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#modal {
+  position: absolute;
+  top: calc(50% - (182px / 2));
+  left: 0;
+  width: 100%;
+  max-width: 700px;
+}
+
+@media screen and (min-width: 1025px) {
+  #modal {
+    left: calc(50% - (700px / 2));
+  }
+}

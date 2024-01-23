@@ -1,23 +1,37 @@
 const reducer = (state, action) => {
-  // console.log(state, action);
+  // console.log(state);
+  // console.log(action.type);
+
   switch (action.type) {
-    case "CHANGE_VIEW_MOBILE": {
-      console.log(action.type);
+    case "MOBILE_VIEW_ON": {
       return {
         ...state,
         mobileView: true,
       };
     }
-    case "CHANGE_VIEW_DESKTOP": {
-      console.log(action.type);
+    case "MOBILE_VIEW_OFF": {
       return {
         ...state,
         mobileView: false,
       };
     }
+    case "TOGGLE_MODAL":
+      return {
+        ...state,
+        isModalOpen: !state.isModalOpen,
+      };
+
+    case "TOGGLE_SIDEBAR":
+      if (state.mobileView) {
+        return {
+          ...state,
+          isSidebarOpen: !state.isSidebarOpen,
+        };
+      }
+      break;
 
     default:
-      return { ...state };
+      throw new Error(`No matching action with name ${action.type}`);
   }
 };
 
